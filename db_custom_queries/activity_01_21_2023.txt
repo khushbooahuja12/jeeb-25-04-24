@@ -1,0 +1,34 @@
+-- Recipe changes
+ALTER TABLE `jeebdev`.`dev_products` ADD `product_type` varchar(255) NOT NULL DEFAULT 'product' AFTER `id`;
+
+ALTER TABLE `jeebdev`.`recipes` ADD `recommended` tinyint DEFAULT '0' AFTER `is_home`;
+ALTER TABLE `jeebdev`.`recipes` ADD `recipe_img_url` TEXT NULL AFTER `recipe_img`;
+
+CREATE TABLE `jeebdev`.`recipe_tags` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `tag` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+ALTER TABLE `jeebdev`.`recipe_ingredients_tags` ADD `image_url` TEXT NULL AFTER `tag`;
+
+CREATE TABLE `jeebdev`.`recipe_variants` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `fk_recipe_id` bigint unsigned NOT NULL,
+  `fk_product_id` bigint unsigned NOT NULL,
+  `serving` int NOT NULL DEFAULT 1,
+  `price` decimal(10,2) NULL DEFAULT NULL,
+  `ingredients` longtext NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+ALTER TABLE `jeebdev`.`recipes` ADD `_tags` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL AFTER `recipe_img_url`;
+ALTER TABLE `jeebdev`.`recipes` ADD `veg` tinyint(1) NOT NULL DEFAULT 0 AFTER `recommended`;
+ALTER TABLE `jeebdev`.`recipe_steps` ADD `time` int NOT NULL DEFAULT 0 AFTER `step_ar`;
+
+ALTER TABLE `jeebdev`.`recipe_ingredients_tags` ADD `pantry_item` tinyint(1) NOT NULL DEFAULT 0 AFTER `image_url`;

@@ -1,0 +1,2 @@
+-- Create user deleted table copying user table
+CREATE TABLE jeebdev.users_deleted LIKE jeebdev.users;

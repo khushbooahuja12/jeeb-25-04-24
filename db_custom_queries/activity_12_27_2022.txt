@@ -1,0 +1,2 @@
+-- User tracking
+CREATE TABLE `jeebdev`.`user_tracking` ( `id` BIGINT NOT NULL AUTO_INCREMENT , `user_id` BIGINT NULL, `key` VARCHAR(255) NULL , `request` TEXT NULL , `response` TEXT NULL , `created_at` TIMESTAMP NOT NULL , `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id`)) ENGINE = InnoDB;

@@ -1,0 +1,19 @@
+-- Queue
+php artisan queue:listen --timeout=0 &
+php artisan optimize:clear
+php artisan cache:clear
+php artisan config:clear
+composer dump-autoload
+
+php artisan queue:failed
+php artisan queue:retry all
+php artisan queue:flush
+
+php artisan queue:restart
+
+CREATE TABLE `products_stock_from_csv` ( `id` BIGINT NOT NULL AUTO_INCREMENT , `itemcode` VARCHAR(255) NOT NULL , `barcode` VARCHAR(255) NOT NULL , `packing` VARCHAR(255) NOT NULL , `rsp` DECIMAL(10,2) NOT NULL DEFAULT '0.00' , `stock` INT NOT NULL DEFAULT '0' , `created_at` TIMESTAMP NOT NULL , `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id`)) ENGINE = InnoDB;
+ALTER TABLE `products_stock_from_csv` ADD `batch_id` VARCHAR(255) NOT NULL AFTER `stock`;
+ALTER TABLE `products_stock_from_csv` ADD `store_no` INT NOT NULL AFTER `batch_id`;
+ALTER TABLE `products_stock_from_csv` ADD `company_id` INT NOT NULL AFTER `store_no`;
+ALTER TABLE `products_stock_from_csv` ADD `checked` BOOLEAN NOT NULL DEFAULT '0' AFTER `company_id`;
+ALTER TABLE `products_stock_from_csv` ADD `updated` BOOLEAN NOT NULL DEFAULT '0' AFTER `checked`;

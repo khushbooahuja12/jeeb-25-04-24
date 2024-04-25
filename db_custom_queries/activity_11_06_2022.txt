@@ -1,0 +1,5 @@
+-- Recipe into Algolia
+CREATE TABLE `recipe_ingredients_tags` ( `id` BIGINT NOT NULL AUTO_INCREMENT , `desc_en` VARCHAR(255) NOT NULL , `desc_ar` VARCHAR(255) NOT NULL , `recipe_id` BIGINT NOT NULL , `tag` VARCHAR(199) NOT NULL , `created_at` TIMESTAMP NOT NULL , `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+INSERT INTO `recipe_ingredients_tags` (`id`, `desc_en`, `desc_ar`, `recipe_id`, `tag`, `created_at`, `updated_at`) VALUES (NULL, '750g Chicken thigh without skin and fat removed', 'مرحبا بالعالم', '6', 'chicken_thigh', '2022-11-06 13:33:57', CURRENT_TIMESTAMP);
+INSERT INTO `recipe_ingredients_tags` (`id`, `desc_en`, `desc_ar`, `recipe_id`, `tag`, `created_at`, `updated_at`) VALUES (NULL, '4 cups of Hot Water', 'مرحبا بالعالم', '6', 'hot_water', '2022-11-06 13:36:12', CURRENT_TIMESTAMP);

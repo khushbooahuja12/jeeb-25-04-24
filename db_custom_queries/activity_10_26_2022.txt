@@ -1,0 +1,9 @@
+-- Create storage link
+php artisan storage:link
+
+Create below folders in storage directory
+images/product_images
+images/banner_images
+images/category_images
+images/common_images
+

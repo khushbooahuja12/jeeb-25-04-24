@@ -1,0 +1,49 @@
+.logout-container{
+    position: absolute;
+    top: 9%;
+    right: 0%;
+    background-color: #fff;
+    color: #000;
+    width: 200px;
+    padding: 20px;
+    display: none;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    z-index: 999;
+    height: auto;
+}
+.logout-container2{
+    position: absolute;
+    top: 7%;
+    right: 3%;
+    background-color: #fff;
+    color: #000;
+    width: 200px;
+    padding: 20px;
+    display: none;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    z-index: 9999;
+    height: auto;
+}
+.logout-container ul li,.logout-container2 ul li{
+    list-style-type: none;
+    cursor: pointer;
+    display: block;
+    margin-top: 5px;
+    margin-left: -18px;
+     padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 18px;
+    transition: all ease 0.3s;
+}
+.logout-container ul li:hover, .logout-container2 ul li:hover{
+    background-color: #00d6ab;
+   border-radius: 5px;
+    width: 120%;
+}
+
+  .search-container{
+    display: none;
+}
+.show{
+    display: block !important;
+}

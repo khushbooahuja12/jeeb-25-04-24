@@ -1,0 +1,10 @@
+-- Upload products to Algolia
+Clear index from Algolia and run the below command
+php artisan scout:import "App\Model\Product"
+
+Or 
+
+php artisan scout:reimport "App\Model\Product"
+
+sudo chown -R www-data:www-data public/images
+sudo chown -R www-data:www-data storage

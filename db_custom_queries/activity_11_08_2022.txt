@@ -1,0 +1,16 @@
+-- Update the tags
+-- CREATE `products_temp` table with same ID and required columns
+UPDATE `products` INNER JOIN `products_temp` on `products_temp`.id = `products`.id SET `products`._tags = `products_temp`._tags;
+DROP TABLE `products_temp`
+
+-- Rerun the failed jobs after stock update CSV
+php artisan queue:retry all
+
+-- Error comes again for laravel log file write permission
+sudo chmod -R 777 storage
+sudo chown -R www-data:www-data /var/www/html/jeeb/storage
+
+-- Don't run the below
+chown -R www-data:www-data /var/www/html/jeeb
+-- If run revert back with below
+chown -R ubuntu:ubuntu /var/www/html/jeeb

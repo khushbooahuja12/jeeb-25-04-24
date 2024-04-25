@@ -1,0 +1,80 @@
+-- Product mapping 
+
+For staging or local development replicate below live DB tables first
+- Products
+- Stores 
+- Categories 
+- Brands 
+
+CREATE TABLE `base_products` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int DEFAULT NULL,
+  `fk_category_id` bigint unsigned DEFAULT NULL,
+  `fk_sub_category_id` bigint unsigned DEFAULT NULL,
+  `fk_brand_id` bigint unsigned DEFAULT NULL,
+  `product_name_en` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `product_name_ar` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `product_image_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `base_price` decimal(10,2) DEFAULT '0.00',
+  `unit` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `_tags` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `essential` tinyint DEFAULT '0' COMMENT '1:yes,0:no',
+  `offered` tinyint NOT NULL DEFAULT '0' COMMENT '1:yes,0:no',
+  `frequently_bought_together` tinyint DEFAULT '0' COMMENT '1:yes,0:no',
+  `is_home_screen` tinyint NOT NULL DEFAULT '0',
+  `deleted` tinyint DEFAULT '0' COMMENT '1:yes,0:no',
+  `stock` tinyint NOT NULL DEFAULT '1' COMMENT 'availability of the product, 1:in stock,0:out of stock',
+  `min_scale` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `max_scale` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `country_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country_icon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`fk_category_id`) REFERENCES `categories`(`id`) ON DELETE NO ACTION,
+  FOREIGN KEY (`fk_sub_category_id`) REFERENCES `categories`(`id`) ON DELETE NO ACTION,
+  FOREIGN KEY (`fk_brand_id`) REFERENCES `brands`(`id`) ON DELETE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=73337 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+SET FOREIGN_KEY_CHECKS=0;
+TRUNCATE table `base_products`;
+INSERT INTO `base_products` (
+id, parent_id, fk_category_id, fk_sub_category_id, fk_brand_id, product_name_en, product_name_ar, product_image_url, base_price, unit, _tags, 
+essential, offered, frequently_bought_together, is_home_screen, deleted, stock, min_scale, max_scale, country_code, country_icon, created_at, updated_at) 
+SELECT id, parent_id, fk_category_id, fk_sub_category_id, fk_brand_id, product_name_en, product_name_ar, product_image_url, store1_price, unit, _tags, 
+essential, offered, frequently_bought_together, is_home_screen, deleted, store1, min_scale, max_scale, country_code, country_icon, created_at, updated_at 
+FROM `dev_products`
+WHERE `fk_company_id`=4;
+
+CREATE TABLE `base_products_store` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `itemcode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `barcode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `unit` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `allow_margin` tinyint NOT NULL DEFAULT '1',
+  `margin` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT 'in percentage, it is a margin for the jeeb',
+  `distributor_price` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `product_price` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `stock` int(11) NOT NULL DEFAULT 0,
+  `fk_product_id` bigint unsigned NOT NULL,
+  `fk_store_id` bigint unsigned NOT NULL,
+  `is_stock_update` tinyint NOT NULL DEFAULT '0' COMMENT 'used to check stock updated or not for this product',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`fk_product_id`) REFERENCES `base_products`(`id`) ON DELETE NO ACTION,  
+  FOREIGN KEY (`fk_store_id`) REFERENCES `stores`(`id`) ON DELETE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=73337 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+TRUNCATE table `base_products_store`;
+INSERT INTO `base_products_store` (
+id, itemcode, barcode, unit, allow_margin, margin, distributor_price, product_price, stock, fk_product_id, fk_store_id, created_at, updated_at) 
+SELECT null, itemcode, barcode, unit, allow_margin, margin, distributor_price, product_price, stock, id, 14, created_at, updated_at 
+FROM `dev_products`
+WHERE `fk_company_id`=4;
+
+ALTER TABLE `base_products_store` ADD `other_names` text NULL AFTER `stock`;
+ALTER TABLE `base_products_store` ADD `is_active` tinyint NOT NULL DEFAULT 0 AFTER `other_names`;
+
+UPDATE `base_products_store` SET `is_active`=1 WHERE `is_active`=0; 
+

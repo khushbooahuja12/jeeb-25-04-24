@@ -1,0 +1,109 @@
+Id,Categories & sub- categories,Category name arabic
+135,Ready To Cook,جاهز للطبخ
+136,Home Baking,خبيز المنزلي
+137,Pasta & Noodles,المعكرونة والنودلز
+138,Instant Noodles,النودلز سريعة التحضير
+139,Soup & Sauce,شوربة وصلصة
+122,Frozen Food,أغذية مجمدة
+123,Burgers & Sausages,برجر ونقانق
+124,Chicken Products,منتجات الدجاج
+125,Frozen Fruits & Pastries,فواكه ومعجنات مجمدة
+126,Frozen Meat,لحوم مجمدة
+127,Frozen Pizza,بيتزا مجمدة
+128,Frozen Poultry,دواجن مجمدة
+129,Frozen Seafood,مأكولات بحرية مجمدة
+130,Frozen Snacks,وجبات خفيفة مجمدة
+131,Frozen Vegetables & Beans,خضار وفاصوليا مجمدة
+90,Pet Care, الحيوانات الاليفة
+91,Bird & Fish Food,أغذية الطيور والأسماك
+92,Dog Food,طعام كلاب
+93,Cat Food,طعام قطط
+120,Pet Care & Accessories,اكسسورات  الحيوانات الاليفة
+89,Cans & Jars,اكل معلب
+94,"Fruits, Vegetables & Beans",الفواكه والخضروات والفاصوليا
+95,Meat,اللحوم
+96,Pickles & Jarred Products,المخللات
+97,Seafood,مأكولات بحرية
+117,Condiments,توابل
+118,Pasta & Tomato Sauce,معكرونة وصلصة الطماطم
+119,Spreads & Dips,صلصات التغميس
+25,Baby Care,عنايات الأطفال
+26,Baby Wipes & Diapers,مناديل  وحفاضات
+27,Baby Oral Care,العناية بالفم 
+28,Baby Skin Care,العناية بالبشرة
+29,Baby Food & Formula,أغذية الأطفال
+30,Feeding & Other Accessories,اكسسوارات الاطفال 
+98,Baby Hair Care,العناية بالشعر
+116,Baby Cologne,كولونيا اطفال
+24,Meat & Eggs,اللحوم و البيض
+31,Seafood,مأكولات بحرية
+32,Mutton,لحم الضأن
+33,Eggs,البيض
+99,Poultry,الدواجن
+100,Beef,لحم االبقر
+23,Household Products,المنتجات المنزلية
+35,Laundry & Fabric Care,العناية بالغسيل والأقمشة
+36,Dishwash,غسيل الاطباق
+37,Tissues & Rolls,مناديل و رولات
+38,Surface Cleaners,منظفات 
+39,Air Fresheners & Fragrances,معطرات الجو والعطور
+40,Pest Control & Repellants,طارد الحشرات
+41,Cleaning Equipments,أدوات  التنظيف
+101,Charcoal & Shisha,أدوات  التنظيف
+132,Household Accessories,أدوات  المنزلية
+22,Personal Hygiene and Grooming,النظافة الشخصية 
+42,Oral Care,العناية بالفم
+43,Body Care & Hygeine,العناية بالجسم 
+44,Hair Care & Style,العناية بالشعر
+45,Deodorants & Fragrances,مزيلات العرق والعطور
+46,Women Hygiene,منتجات نسائية
+47,Cosmetics,ادوات التجميل
+102,Foot Care,العناية بالقدم
+103,Health & Medicine,الصحة و الادوية
+105,Men's Grooming,عتاية الرجال
+106,Shoes Care,العناية بالأحذية
+107,Soap & Bodywash,الصابون وغسول الجسم
+133,Facial care,العناية بالوجه
+134,Hair Color,صبغ الشعر
+150,Adult Pads,خصوصيات النساء
+21,Snacks,وجبات خفيفة
+48,Chocolates & Sweets,الشوكولاتة والحلويات
+50,Chips & Other Snacks,رقائق البطاطس و غيرهم
+51,Breakfast Cereals & Oats,حبوب الإفطار والشوفان
+52,Biscuits & Cookies,البسكويت والكوكيز
+140,"Nuts, Seeds & Dates",المكسرات والبذور والتمور
+141,Energy & Protein Bars,مأكولات الطاقة والبروتين
+20,Oil & Ghee,الزيت و  السمن
+56,Oil,الزيوت
+57,Ghee,السمن
+19,Foodgrains & Spices,البهارات
+59,Flour,طحين
+60,Rice & Pulses,أرز
+62,Salt & Sugar,ملح وسكر
+64,Herbs & Spices,الأعشاب والتوابل
+18,Bakery,الخبازة
+65,"Bread, Buns & Wraps",الخبز والكعك واللفائف
+108,Cakes & Sweets,كيك وحلويات
+110,Muffins & Cupcakes,الكعك والكب كيك
+109,Crossiant,كرواسون
+111,Rusk & Bread Snacks,وجبات خفيفة
+17,Dairy,ألبان
+68,Milk & Milk products,الحليب ومنتجاته
+69,Butter,سمنة
+71,Cheese,جبنه
+72,Dairy & Non-Dairy Drinks,مشروبات الألبان وغير الألبان
+73,Ice Cream,بوظة
+112,Yogurt,زبادي
+113,Cooking Cream,كريم الطبخ
+16,Vegetables & Fruits,الخضار والفواكه
+74,Vegetables & Beans,الخضار والفاصوليا
+75,Fruits,الفواكه
+15,Beverages,المشروبات
+80,Coffee & Tea,شاى قهوة
+82,Soft Drinks,المشروبات الغازية
+83,Drinking Water ,يشرب الماء
+84,Energy Drinks,مشروبات الطاقة
+85,Juices & Health Drinks,عصائر ومشروبات صحية
+86,Malted Drinks,مشروبات شعير
+114,Non-Alcoholic Drinks,مشروبات غير كحولية
+115,Syrups & Flavored Drinks,العصائر والمشروبات المنكهة

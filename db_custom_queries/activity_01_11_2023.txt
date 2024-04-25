@@ -1,0 +1,66 @@
+-- Home Static
+CREATE TABLE `jeebprod`.`home_static_file` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `file_name` TEXT DEFAULT NULL,
+  `backup_file_name` TEXT DEFAULT NULL,
+  `IP` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=73126 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+ALTER TABLE `jeebdprod`.`home_static_file` ADD `lang` varchar(255) DEFAULT NULL;
+ALTER TABLE `jeebdev`.`home_static_file` DROP COLUMN `backup_file_name`;
+
+-- Other useful SQL queries
+
+CREATE TABLE failed_jobs_11_27_2022 LIKE failed_jobs;
+
+INSERT INTO failed_jobs_11_27_2022 SELECT * FROM failed_jobs;
+
+SELECT * FROM jeebprod.products WHERE itemcode='100054119' 
+
+CREATE TABLE `jeebdev`.`user_tracking` ( `id` BIGINT NOT NULL AUTO_INCREMENT , `user_id` BIGINT NULL, `key` VARCHAR(255) NULL , `request` TEXT NULL , `response` TEXT NULL , `created_at` TIMESTAMP NOT NULL , `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+SELECT o.*
+FROM jeebdev.orders o 
+JOIN jeebdev.order_products op ON (op.fk_order_id = o.id AND op.is_missed_product=1)
+WHERE o.status = 7 AND o.parent_id =0
+GROUP BY o.id
+
+select `orders`.`id` 
+from `orders` 
+inner join `order_products` on `orders`.`id` = `order_products`.`fk_order_id` and `order_products`.`is_missed_product` = 1 
+where (`status` = 7 and `orders`.`parent_id` = 0) 
+group by `order_products`.`fk_order_id`
+
+UPDATE `jeebprod`.`products` set `barcode` = TRIM(`barcode`) WHERE `barcode` LIKE "% ";
+UPDATE `jeebprod`.`products` set `itemcode` = TRIM(`itemcode`) WHERE `itemcode` LIKE "% ";
+
+ALTER TABLE `jeebprod`.`recipe_categories` ADD `image` TEXT NULL AFTER `name_ar`;
+ALTER TABLE `jeebdev`.`recipe_categories` ADD `image` TEXT NULL AFTER `name_ar`;
+
+ALTER TABLE `jeebprod`.`recipe_categories` DROP `is_home_`;
+ALTER TABLE `jeebdev`.`recipe_categories` DROP `is_home`;
+
+ALTER TABLE `jeebprod`.`recipe_steps` CHANGE `step_en` `step_en` varchar(255) CHARACTER SET `utf8mb4` COLLATE `utf8mb4_unicode_ci` DEFAULT NULL;
+ALTER TABLE `jeebprod`.`recipe_ingredients_tags` CHANGE `desc_en` `desc_en` varchar(255) CHARACTER SET `utf8mb4` COLLATE `utf8mb4_unicode_ci` DEFAULT NULL;
+ALTER TABLE `jeebprod`.`recipe_ingredients_tags` CHANGE `desc_ar` `desc_ar` varchar(255) CHARACTER SET `utf8mb4` COLLATE `utf8mb4_unicode_ci` DEFAULT NULL;
+
+UPDATE `jeebdev`.`orders` set `status` = 7 WHERE `status` = 6;
+
+UPDATE `jeebdev`.`users` set `nearest_store` = 14 WHERE 1;
+
+select * from `user_wallet` inner join `users` on `users`.`id` = `user_wallet`.`fk_user_id` where `users`.`mobile` LIKE "%50122838%"
+
+SELECT pc.* FROM `jeebprod`.`products` pc 
+INNER JOIN `jeebprod`.`products_stock_from_csv` ps ON (pc.`itemcode`=TRIM(LEADING '0' FROM ps.`itemcode`) AND pc.`barcode`=TRIM(LEADING '0' FROM ps.`barcode`))
+WHERE pc.`fk_company_id`=4 AND ps.`batch_id`='983254ab-e29d-4a05-a4e2-88fe0d2fce12'
+GROUP BY pc.`id`;
+
+ALTER TABLE `jeebprod`.`products_stock_from_csv` CHANGE `itemcode` `itemcode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL;
+ALTER TABLE `jeebprod`.`products_stock_from_csv` CHANGE `barcode` `barcode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL;
+ALTER TABLE `jeebprod`.`products_stock_from_csv` CHANGE `rsp` `rsp` decimal(10,2) NOT NULL DEFAULT '0.00';
+ALTER TABLE `jeebprod`.`products_stock_from_csv` CHANGE `stock` `stock` int NOT NULL DEFAULT '0';
+ALTER TABLE `jeebprod`.`products` CHANGE `store2` `store2` int NOT NULL DEFAULT '0';
+ALTER TABLE `jeebprod`.`products` CHANGE `store3` `store3` int NOT NULL DEFAULT '0';

@@ -1,0 +1,6 @@
+ALTER TABLE `jeebprod`.`technical_support_chat` ADD `action` VARCHAR(255) NULL AFTER `message`;
+
+-- Update sub categories of storekeeper
+INSERT INTO `jeebprod`.`storekeeper_sub_categories` (fk_storekeeper_id, fk_sub_category_id) 
+SELECT 31, fk_sub_category_id FROM `jeebprod`.`storekeeper_sub_categories` WHERE fk_storekeeper_id = 20;
+
