@@ -2,7 +2,9 @@
 $controller = get_controller();
 $action = get_action();
 ?>
-<div class="left side-menu">
+<div class="left side-menu sidebar-color">
+    <img src="{{asset('assets/images/image-sidebar.png')}}" alt="sidebar-bg" class="sidebar-bg1">
+    <img src="{{asset('assets/images/image-sidebar1.png')}}" alt="sidebar-bg" class="sidebar-bg2">
     <div class="slimscroll-menu" id="remove-scroll">
         <div id="sidebar-menu">
             <ul class="metismenu" id="side-menu">
@@ -58,7 +60,7 @@ $action = get_action();
                 <li>
                     <a href="javascript:void(0)" class="waves-effect">
                         <i class="fa fa-shopping-cart"></i> <span>Accounts</span>
-                    </a>
+                    </a> 
                     <ul class="submenu">
                         <li><a href="{{ route('vendor-subscription') }}">Subscription</a></li>
                         <li><a  href="javascript:void(0)" >Billing</a>

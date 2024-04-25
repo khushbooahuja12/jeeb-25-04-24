@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-    @include('partials.errors')
+    @include('partials.errors') 
     @include('partials.success')
     <div class="ajax_alert"></div>
     <div class="row">

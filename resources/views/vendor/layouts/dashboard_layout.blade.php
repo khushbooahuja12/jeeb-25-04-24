@@ -11,11 +11,12 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <link rel="shortcut icon" type="image/jpg" href="{{asset('home_assets/uploads/2019/10/jeeb_square_logo.png')}}" />
-
+ 
         <!--Morris Chart CSS -->
         <link rel="stylesheet" href="{{asset('assets/plugins/morris/morris.css')}}">
 
         <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('assets/css/custom.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('assets/css/metismenu.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('assets/css/icons.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css">
@@ -168,10 +169,11 @@ $.validator.addMethod("space_not_allowed", function (value, element) {
             <div class="topbar">
 
                 <!-- LOGO -->
-                <div class="topbar-left">
+                <div class="topbar-left topbar-new pt-4">
                     <a href="<?= url('vendor/dashboard'); ?>" class="logo">
                         <span class="logo-light">
-                            Saudia Hypermarket
+                            {{-- Saudia Hypermarket --}}
+                            <img src="{{asset('assets/images/jeeb-logo.png')}}" alt="logo" class="logo-cls">
                         </span>
                         <span class="logo-sm">
                             <i class="mdi mdi-camera-control"></i>

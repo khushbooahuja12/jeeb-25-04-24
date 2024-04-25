@@ -1,0 +1,44 @@
+body{
+    background-color: red;
+}
+.sidebar-color{
+    background-color: #313048 !important;
+    border-bottom-right-radius: 50px;
+    top: 99px !important;
+}
+.topbar-new{
+    background-color: #313048 !important;
+    border-top-right-radius: 50px;
+    height: auto !important;
+}
+.logo-cls{
+    width:100px;
+}
+.sidebar-bg1{
+    width: 80px;
+    height: 98%;
+    position: absolute;
+    top: 0px;
+}
+.sidebar-bg2{
+    width: 180px;
+    height: 98%;
+    position: absolute;
+    top: 0px;
+    left: 60px;
+}
+@media (min-width:1440px) and (max-width:1920px) {
+    .sidebar-bg1{
+    width: 80px;
+    height: 95%;
+    position: absolute;
+    top: 15px;
+}
+.sidebar-bg2{
+    width: 180px;
+    height: 95%;
+    position: absolute;
+    top: 15px;
+    left: 60px;
+}
+}
